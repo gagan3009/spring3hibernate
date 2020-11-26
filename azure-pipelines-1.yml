@@ -1,15 +1,9 @@
-# Gradle
-
-
-# Build your Java project and run tests with Gradle using a Gradle wrapper script.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
-
-trigger:
-- master
-
 pool:
-  vmImage: 'ubuntu-latest'
+  name: Azure Pipelines
+  demands: java
+
+#Your build pipeline references an undefined variable named ‘Parameters.wrapperScript’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references an undefined variable named ‘Parameters.tasks’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
 
 steps:
 - task: Gradle@2
@@ -38,4 +32,4 @@ steps:
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
   condition: succeededOrFailed()
-  
+

@@ -23,10 +23,6 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'build'
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST-*.xml'
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
   inputs:
